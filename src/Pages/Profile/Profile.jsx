@@ -8,7 +8,7 @@ import {WhatsappIcon,FacebookIcon,TwitterIcon, FacebookShareButton, WhatsappShar
 const Profile = () => {
     const [yourPosts,setYourPosts]= useState([]);
     useEffect(()=>{
-        Axios.get(`http://vi-post.herokuapp.com/post/byUser/${localStorage.getItem("username")}`
+        Axios.get(`https://vi-post.herokuapp.com/post/byUser/${localStorage.getItem("username")}`
             
         ).then(response =>{
             setYourPosts(response.data);

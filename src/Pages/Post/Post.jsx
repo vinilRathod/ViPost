@@ -13,7 +13,7 @@ const Post = () => {
         formData.append("upload_preset","ei1wpalh");
         Axios.post("https://api.cloudinary.com/v1_1/dzxpy9npp/image/upload",formData).then(response =>{
                 const imgName = response.data.public_id;
-                Axios.post("http://vi-post.herokuapp.com/post",{
+                Axios.post("https://vi-post.herokuapp.com/post",{
                     title:title,
                     image:imgName,
                     username:localStorage.getItem("username")

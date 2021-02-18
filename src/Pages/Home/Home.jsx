@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 const Home = () =>{
     useEffect(()=>{
         if(localStorage.getItem("username")){
-        Axios.get(`http://vi-post.herokuapp.com/user/likes/${localStorage.getItem("username")}`).then(response=>{
+        Axios.get(`https://vi-post.herokuapp.com/user/likes/${localStorage.getItem("username")}`).then(response=>{
                     var tmpArray=[];
                     response.data.map((val)=>{
                         tmpArray[val.postid]=true;
@@ -25,7 +25,7 @@ const Home = () =>{
     const history=useHistory();
     
     useEffect(()=>{
-            Axios.get("http://vi-post.herokuapp.com/post").then(response=>{
+            Axios.get("https://vi-post.herokuapp.com/post").then(response=>{
                 setPost(response.data);
                 var tmpArr=[];
                 response.data.map(val => {
@@ -35,7 +35,7 @@ const Home = () =>{
             });
     },[]);
     const likePost = (id) =>{
-        Axios.post("http://vi-post.herokuapp.com/post/like",{
+        Axios.post("https://vi-post.herokuapp.com/post/like",{
             userLiking:localStorage.getItem("username"),
             postid:id
         }).then(response =>{
