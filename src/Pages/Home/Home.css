@@ -1,0 +1,66 @@
+.Home{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Home .Upload{
+    width:600px;
+    height: 800px;
+    border:2px solid black;
+    display: flex;
+    flex-direction:column;
+    margin: 100px;
+}
+.Home .Upload .Image{
+    flex:60%;
+    
+}
+.Home .Upload .Image img{
+    width:80%;
+    margin-left: 60px;
+    margin-top: 60px;
+}
+.Home .Upload .Caption{
+    flex:40%;
+    display: flex;
+    flex-direction:column;
+}
+.Home .Upload .Caption .Title{
+    flex:30%;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    
+}
+.Home .Upload .Caption .UserDetails{
+    flex:20%;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+   
+}
+.Home .Upload .Caption .Likes{
+    flex:30%;
+    text-align: center;
+    
+}
+.Home .Upload .Caption .Share{
+    flex:20%;
+    text-align: center;
+}
+.Home .Upload .Caption .Likes #likeButton{
+    font-size: 40px;
+    color:gray;
+}
+
+.Home .Upload .Caption .Likes #likeButton:hover{
+    cursor: pointer;
+    
+}
+
+.Home .Upload .Caption .Likes #likeButton:active{
+    color:black;
+    
+}

@@ -1,0 +1,64 @@
+.Profile{
+    width:100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.Profile .Upload{
+    width:600px;
+    height: 700px;
+    border:2px solid black;
+    display: flex;
+    flex-direction:column;
+    
+    
+    margin: 100px;
+}
+.Profile .Upload .Image{
+    flex:70%;
+    
+}
+.Profile .Upload .Image img{
+    width:80%;
+    margin-left: 60px;
+    margin-top: 60px;
+}
+.Profile .Upload .Caption{
+    flex:30%;
+    display: flex;
+    flex-direction:column;
+}
+.Profile .Upload .Caption .Title{
+    flex:30%;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 30px;
+    
+}
+.Profile .Upload .Caption .UserDetails{
+    flex:20%;
+    text-align: center;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+   
+}
+.Profile .Upload .Caption .Likes{
+    flex:50%;
+    text-align: center;
+    
+}
+.Profile .Upload .Caption .Likes #likeButton{
+    font-size: 40px;
+    color:gray;
+}
+
+.Profile .Upload .Caption .Likes #likeButton:hover{
+    cursor: pointer;
+    
+}
+
+.Profile .Upload .Caption .Likes #likeButton:active{
+    color:black;
+    
+}
