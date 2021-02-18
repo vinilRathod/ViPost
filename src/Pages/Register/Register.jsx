@@ -7,7 +7,7 @@ const Register = () =>{
     const [password,setPassword] =useState('');
     const [msg,setMsg] =useState('');
     const register = () => {
-        Axios.post("https://vi-post.herokuapp.com/register",{
+        Axios.post("https://vi-post.herokuapp.com/user/register",{
             username:username,
             password:password
         }).then(response =>{
