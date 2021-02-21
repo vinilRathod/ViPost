@@ -9,7 +9,7 @@ import { useHistory } from 'react-router-dom';
 const Home = () =>{
     useEffect(()=>{
         if(localStorage.getItem("username")){
-        Axios.get(`https://vi-post.herokuapp.com/user/likes/${localStorage.getItem("username")}`).then(response=>{
+        Axios.get(`http://localhost:3001/user/likes/${localStorage.getItem("username")}`).then(response=>{
                     var tmpArray=[];
                     response.data.map((val)=>{
                         tmpArray[val.postid]=true;
@@ -20,12 +20,14 @@ const Home = () =>{
     })
     const [posts,setPost] = useState([]);
     const [likes,setLikes] = useState([]);
+    const [mob,setMob] =useState('');
+    const [mail,setMail]=useState('');
     const [liked,setLiked] =useState(JSON.parse(localStorage.getItem("liked")));
     localStorage.setItem("liked",JSON.stringify(liked));
     const history=useHistory();
     
     useEffect(()=>{
-            Axios.get("https://vi-post.herokuapp.com/post").then(response=>{
+            Axios.get("http://localhost:3001/post").then(response=>{
                 setPost(response.data);
                 var tmpArr=[];
                 response.data.map(val => {
@@ -35,12 +37,19 @@ const Home = () =>{
             });
     },[]);
     const likePost = (id) =>{
-        Axios.post("https://vi-post.herokuapp.com/post/like",{
+        Axios.post("http://localhost:3001/post/like",{
             userLiking:localStorage.getItem("username"),
             postid:id
         }).then(response =>{
                 
                 history.push('/');
+        })
+    }
+    const getUser = user =>{
+        Axios.get(`http://localhost:3001/user/${user}`).then(response=>{
+            setMail(response.data[0].mail);
+            setMob(response.data[0].mob);
+            
         })
     }
     return(
@@ -62,7 +71,9 @@ const Home = () =>{
                                        {val.title}
                                      </div>
                                      <div className="UserDetails">
-                                        by @{val.username}
+                                        by @{val.username}<br />
+                                        
+                                        Price : Rs. {val.price}
                                    </div>
                                    
                                    <div className="Likes">
@@ -94,8 +105,13 @@ const Home = () =>{
                                     
                                    
                                    </div> 
+                                   <button onClick={()=>{
+                                       getUser(val.username)
+                                       document.getElementById("info").innerHTML="Mobile number : "+mob+"<br/> Email id :"+mail;
+                                   }}>Seller info</button>
                                    </div>
-                                   
+                                   <div id="info">
+                                    </div>
                                    <div className="Share">
                                    Posted on {val.day}-{val.month}-{val.year}
                                        <FacebookShareButton

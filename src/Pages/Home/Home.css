@@ -6,8 +6,8 @@
     align-items: center;
 }
 .Home .Upload{
-    width:600px;
-    height: 800px;
+    width:800px;
+    height: 1200px;
     border:2px solid black;
     display: flex;
     flex-direction:column;
@@ -63,4 +63,9 @@
 .Home .Upload .Caption .Likes #likeButton:active{
     color:black;
     
+}
+#info{
+    font-size: 20px;
+    color:blue;
+    padding-left: 20px;
 }

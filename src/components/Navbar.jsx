@@ -16,7 +16,7 @@ const Navbar = (props) =>{
                 props.loginfo ?
                 (
                     <>
-                    <a href="/post">Post</a>
+                    <a href="/post">Sell</a>
                     <a href="/profile">Profile</a>
                     <a href="/logout">Logout</a>
                     </>

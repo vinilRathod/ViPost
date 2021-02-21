@@ -8,12 +8,15 @@ import {WhatsappIcon,FacebookIcon,TwitterIcon, FacebookShareButton, WhatsappShar
 const Profile = () => {
     const [yourPosts,setYourPosts]= useState([]);
     useEffect(()=>{
-        Axios.get(`https://vi-post.herokuapp.com/post/byUser/${localStorage.getItem("username")}`
+        Axios.get(`http://localhost:3001/post/byUser/${localStorage.getItem("username")}`
             
         ).then(response =>{
             setYourPosts(response.data);
         })
     },[]);
+    const delPost =img =>{
+        Axios.delete(`http://localhost:3001/user/${img}`)
+    }
     return(
     <>
     <Navbar loginfo={localStorage.getItem("loggedin")} />
@@ -30,10 +33,14 @@ const Profile = () => {
                                        {val.title}
                                      </div>
                                      <div className="UserDetails">
-                                        by @{val.username}
+                                        by @{val.username} <br/>
+                                        Price : Rs. {val.price}
                                    </div>
                                     Likes : {val.likes} <br />
-                                    Posted on {val.day}-{val.month}-{val.year}
+                                    Posted on {val.day}-{val.month}-{val.year} <br />
+                                    <button onClick={()=>
+                                    delPost(val.image)}>Delete Post</button>
+                                    
                                     <div className="Share">
                                        <FacebookShareButton
                                         url={String(window.location)}

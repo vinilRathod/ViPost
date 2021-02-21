@@ -5,11 +5,15 @@ import './Register.css';
 const Register = () =>{
     const [username,setUsername] =useState('');
     const [password,setPassword] =useState('');
+    const [mob,setMob]=useState('');
+    const [mail,setMail] =useState('');
     const [msg,setMsg] =useState('');
     const register = () => {
-        Axios.post("https://vi-post.herokuapp.com/user/register",{
+        Axios.post("http://localhost:3001/user/register",{
             username:username,
-            password:password
+            password:password,
+            mob:mob,
+            mail:mail
         }).then(response =>{
             setMsg(response.data.msg);
         });
@@ -21,6 +25,8 @@ const Register = () =>{
                 <h1>Registration</h1>
                 <div className="RegisterForm">
                     <input type="text" placeholder="Create your usernname !" onChange={event =>{setUsername(event.target.value)}} />
+                    <input type="email" placeholder="Enter your mail !" onChange={event =>{setMail(event.target.value)}} />
+                    <input type="number" placeholder="Enter your Whatsapp mobile !" onChange={event =>{setMob(event.target.value)}} />
                     <input type="password" placeholder="Create your password !" onChange={event =>{setPassword(event.target.value)}} />
                     <button onClick={register}>Register</button>
                     <h1 style={{color: "red"}}> {msg} </h1>
