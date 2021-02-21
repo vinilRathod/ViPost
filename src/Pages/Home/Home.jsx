@@ -102,13 +102,15 @@ const Home = () =>{
                                    
                                     <div id="likes">
                                     {likes[val.id]}
+                                    <br />
                                     <button onClick={()=>{
-                                        document.getElementById("info").innerHTML="Mobile Number : "+ val.mob+
-                                        " <br /> Mail id :  "+val.mail;
+                                        var para = document.createElement("div");                 
+                                        para.innerHTML = "Mobile Number : "+ val.mob+
+                                        " <br /> Mail id :  "+val.mail;               
+                                        document.getElementById("likes").appendChild(para);  
+                                        para.className="info";
                                     }}>Show Seller Info</button>
-                                    <div id="info">
-                                        
-                                    </div>
+                                    
                                    </div> 
                                    
                                    </div>
