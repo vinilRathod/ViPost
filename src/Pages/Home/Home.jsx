@@ -102,10 +102,10 @@ const Home = () =>{
                                    
                                     <div id="likes">
                                     {likes[val.id]}
-                                    <Button onClick={()=>{
+                                    <button onClick={()=>{
                                         document.getElementById("info").innerHTML="Mobile Number : "+ val.mob+
                                         " <br /> Mail id :  "+val.mail;
-                                    }}>Show Seller Info</Button>
+                                    }}>Show Seller Info</button>
                                     <div id="info">
                                         
                                     </div>
