@@ -42,6 +42,7 @@ const Home = () =>{
         })
         
                 })
+                console.log(mail,mob);
             });
     },[]);
     const likePost = (id) =>{
