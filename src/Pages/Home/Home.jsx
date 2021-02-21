@@ -108,9 +108,9 @@ const Home = () =>{
                                     {likes[val.id]}
                                     
                                     <div id="info">
-                                        Mobile Number : {mob[key]}
+                                        Mobile Number : {console.log(mob[key])}
                                         <br />
-                                        Mail id : {mail[key]}
+                                        Mail id : {console.log(mail[key])}
                                     </div>
                                    </div> 
                                    
