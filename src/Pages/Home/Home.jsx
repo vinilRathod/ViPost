@@ -23,8 +23,7 @@ const Home = () =>{
     const [liked,setLiked] =useState(JSON.parse(localStorage.getItem("liked")));
     localStorage.setItem("liked",JSON.stringify(liked));
     const history=useHistory();
-    const [mob,setMob]=useState([]);
-    const [mail,setMail]=useState([]);
+    
     useEffect(()=>{
             
             Axios.get("https://vi-post.herokuapp.com/post").then(response=>{
@@ -36,13 +35,13 @@ const Home = () =>{
                 setLikes(tmpArr);
                 response.data.map(val=>{
                     
-                    Axios.get(`https://vi-post.herokuapp.com/user/${val.username}`).then(response=>{
-                       setMail([...mail,response.data[0].mail]);
-                       setMob([...mob,response.data[0].mob]);           
+                    Axios.get(`https://vi-post.herokuapp.com/user/${val.username}`).then(response1=>{
+                           val["mob"]=response1.data[0].mob;    
+                           val["mail"]=response1.data[0].mail; 
         })
         
                 })
-                console.log(mail,mob);
+                console.log(response.data);
             });
     },[]);
     const likePost = (id) =>{
@@ -106,9 +105,9 @@ const Home = () =>{
                                     {likes[val.id]}
                                     
                                     <div id="info">
-                                        Mobile Number : {mob[key]}
+                                        Mobile Number : {val.mob}
                                         <br />
-                                        Mail id : {mail[key]}
+                                        Mail id : {val.mail}
                                     </div>
                                    </div> 
                                    
