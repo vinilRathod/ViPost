@@ -17,7 +17,7 @@ const Home = () =>{
                     localStorage.setItem("liked",JSON.stringify(tmpArray));
                 })
             }
-    })
+    },[])
     const [posts,setPost] = useState([]);
     const [likes,setLikes] = useState([]);
     const [liked,setLiked] =useState(JSON.parse(localStorage.getItem("liked")));
@@ -105,9 +105,9 @@ const Home = () =>{
                                     {likes[val.id]}
                                     
                                     <div id="info">
-                                        Mobile Number : {console.log(mob[key])}
+                                        Mobile Number : {mob[key]}
                                         <br />
-                                        Mail id : {console.log(mail[key])}
+                                        Mail id : {mail[key]}
                                     </div>
                                    </div> 
                                    
