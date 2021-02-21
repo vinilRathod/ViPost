@@ -23,10 +23,10 @@ const Home = () =>{
     const [liked,setLiked] =useState(JSON.parse(localStorage.getItem("liked")));
     localStorage.setItem("liked",JSON.stringify(liked));
     const history=useHistory();
-    
-    useEffect(()=>{
-            var mob = [];
+    var mob = [];
              var mail= [];
+    useEffect(()=>{
+            
             Axios.get("https://vi-post.herokuapp.com/post").then(response=>{
                 setPost(response.data);
                 var tmpArr=[];
