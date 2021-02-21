@@ -43,9 +43,10 @@ const Home = () =>{
         })
         
                 })
+                
                 setMob(tmpA);
                         setMail(tmpB);
-                        console.log(mail,mob)
+                        console.log(mail,mob,tmpA,tmpB);
             });
     },[]);
     const likePost = (id) =>{
