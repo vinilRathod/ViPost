@@ -8,14 +8,14 @@ import {WhatsappIcon,FacebookIcon,TwitterIcon, FacebookShareButton, WhatsappShar
 const Profile = () => {
     const [yourPosts,setYourPosts]= useState([]);
     useEffect(()=>{
-        Axios.get(`http://localhost:3001/post/byUser/${localStorage.getItem("username")}`
+        Axios.get(`https://vi-post.herokuapp.com/post/byUser/${localStorage.getItem("username")}`
             
         ).then(response =>{
             setYourPosts(response.data);
         })
     },[]);
     const delPost =img =>{
-        Axios.delete(`http://localhost:3001/user/${img}`)
+        Axios.delete(`https://vi-post.herokuapp.com/user/${img}`)
     }
     return(
     <>

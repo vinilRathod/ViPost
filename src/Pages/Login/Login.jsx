@@ -9,7 +9,7 @@ const Login = () =>{
     const [errorMsg,setError] = useState('');
     const history = useHistory();
     const login = () => {
-        Axios.post("http://localhost:3001/user/login",{
+        Axios.post("https://vi-post.herokuapp.com/user/login",{
             username:username,
             password:password,
         }).then(response =>{

@@ -9,7 +9,7 @@ const Register = () =>{
     const [mail,setMail] =useState('');
     const [msg,setMsg] =useState('');
     const register = () => {
-        Axios.post("http://localhost:3001/user/register",{
+        Axios.post("https://vi-post.herokuapp.com/user/register",{
             username:username,
             password:password,
             mob:mob,
