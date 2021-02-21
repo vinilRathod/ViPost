@@ -63,7 +63,7 @@ const Home = () =>{
                 
                     {posts.map((val,key) =>{
                         return(
-                            <div className="Upload" key={val.id}>
+                            <div className="Upload">
                                 <div className="Image">
                                     <Image cloudName="dzxpy9npp" publicId={val.image} />
                                 </div>
