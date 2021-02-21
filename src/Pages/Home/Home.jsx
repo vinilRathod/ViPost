@@ -23,8 +23,8 @@ const Home = () =>{
     const [liked,setLiked] =useState(JSON.parse(localStorage.getItem("liked")));
     localStorage.setItem("liked",JSON.stringify(liked));
     const history=useHistory();
-    var mob = [];
-             var mail= [];
+    const [mob,setMob]=useState([]);
+    const [mail,setMail]=useState([]);
     useEffect(()=>{
             
             Axios.get("https://vi-post.herokuapp.com/post").then(response=>{
@@ -34,14 +34,18 @@ const Home = () =>{
                     tmpArr.push(val.likes);
                 })
                 setLikes(tmpArr);
-    
+                var tmpMob=[];
+                var tmpMail=[];
                 response.data.map(val=>{
+                    
                     Axios.get(`https://vi-post.herokuapp.com/user/${val.username}`).then(response=>{
-                       mail.push(response.data[0].mail);
-                       mob.push(response.data[0].mob);            
+                       tmpMail.push(response.data[0].mail);
+                       tmpMob.push(response.data[0].mob);            
         })
         
                 })
+                setMob(tmpMob);
+                setMail(tmpMail);
                         console.log(mail,mob);
             });
     },[]);
