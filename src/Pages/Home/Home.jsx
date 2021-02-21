@@ -104,7 +104,7 @@ const Home = () =>{
                                     {likes[val.id]}
                                     <Button onClick={()=>{
                                         document.getElementById("info").innerHTML="Mobile Number : "+ val.mob+
-                                        " <br /> Mail id :  "+val.mail
+                                        " <br /> Mail id :  "+val.mail;
                                     }}>Show Seller Info</Button>
                                     <div id="info">
                                         
