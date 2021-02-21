@@ -34,16 +34,18 @@ const Home = () =>{
                     tmpArr.push(val.likes);
                 })
                 setLikes(tmpArr);
+                var tmpA=[];
+                var tmpB=[];
                 response.data.map(val=>{
                     Axios.get(`https://vi-post.herokuapp.com/user/${val.username}`).then(response=>{
-                        var tmpA=mob;
-                        var tmpB=mail;
-                        tmpA[val.id]=response.data[0].mob;
-                        tmpB[val.id]=response.data[0].mail;
-                        setMob(tmpA);
-                        setMail(tmpB);
+                        tmpA.push(response.data[0].mob);
+                        tmpB.push(response.data[0].mail);                
         })
+        
                 })
+                setMob(tmpA);
+                        setMail(tmpB);
+                        console.log(mail,mob)
             });
     },[]);
     const likePost = (id) =>{
