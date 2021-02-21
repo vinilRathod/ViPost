@@ -34,6 +34,16 @@ const Home = () =>{
                     tmpArr.push(val.likes);
                 })
                 setLikes(tmpArr);
+                response.data.map(val=>{
+                    Axios.get(`https://vi-post.herokuapp.com/user/${val.username}`).then(response=>{
+                        var tmpA=mob;
+                        var tmpB=mail;
+                        tmpA[val.id]=response.data[0].mob;
+                        tmpB[val.id]=response.data[0].mail;
+                        setMob(tmpA);
+                        setMail(tmpB);
+        })
+                })
             });
     },[]);
     const likePost = (id) =>{
@@ -46,14 +56,7 @@ const Home = () =>{
         })
     }
     const getUser = (user,id) =>{
-        Axios.get(`https://vi-post.herokuapp.com/user/${user}`).then(response=>{
-            var tmpA=mob;
-            var tmpB=mail;
-            tmpA[id]=response.data[0].mob;
-            tmpB[id]=response.data[0].mail;
-            setMob(tmpA);
-            setMail(tmpB);
-        })
+        
     }
     return(
         <>
@@ -64,7 +67,6 @@ const Home = () =>{
         <div className="Home">
                 
                     {posts.map((val,key) =>{
-                        getUser(val.username,val.id);
                         return(
                             <div className="Upload" key={val.id}>
                                 <div className="Image">
