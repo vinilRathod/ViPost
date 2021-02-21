@@ -27,7 +27,6 @@ const Home = () =>{
     useEffect(()=>{
             
             Axios.get("https://vi-post.herokuapp.com/post").then(response=>{
-                setPost(response.data);
                 var tmpArr=[];
                 response.data.map(val => {
                     tmpArr.push(val.likes);
@@ -60,7 +59,7 @@ const Home = () =>{
         localStorage.getItem("loggedin") ?
         (
         <div className="Home">
-                
+                    {console.log(posts)}
                     {posts.map((val,key) =>{
                         return(
                             <div className="Upload">
