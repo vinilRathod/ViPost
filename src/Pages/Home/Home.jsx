@@ -41,7 +41,7 @@ const Home = () =>{
         })
         
                 })
-                console.log(response.data);
+                setPost(response.data);
             });
     },[]);
     const likePost = (id) =>{
@@ -105,7 +105,7 @@ const Home = () =>{
                                     {likes[val.id]}
                                     
                                     <div id="info">
-                                        Mobile Number : { console.log(val["mob"])}
+                                        Mobile Number : { val["mob"]}
                                         <br />
                                         Mail id : {val["mail"]}
                                     </div>
