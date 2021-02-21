@@ -64,6 +64,7 @@ const Home = () =>{
         <div className="Home">
                 
                     {posts.map((val,key) =>{
+                        getUser(val.username,val.id);
                         return(
                             <div className="Upload" key={val.id}>
                                 <div className="Image">
@@ -107,12 +108,12 @@ const Home = () =>{
                                     {likes[val.id]}
                                     
                                     <div id="info">
+                                        Mobile Number : {mob[val.id]}
+                                        <br />
+                                        Mail id : {mail[val.id]}
                                     </div>
                                    </div> 
-                                   <button onClick={()=>{
-                                       getUser(val.username,val.id);
-                                       document.getElementById("info").innerHTML="Mobile number : "+mob[val.id]+"<br/> Email id :"+mail[val.id];
-                                   }}>Seller info</button>
+                                   
                                    </div>
                                    
                                    <div className="Share">
