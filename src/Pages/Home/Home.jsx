@@ -59,7 +59,7 @@ const Home = () =>{
         localStorage.getItem("loggedin") ?
         (
         <div className="Home">
-                    {console.log(posts)}
+
                     {posts.map((val,key) =>{
                         return(
                             <div className="Upload">
@@ -102,11 +102,12 @@ const Home = () =>{
                                    
                                     <div id="likes">
                                     {likes[val.id]}
-                                    
+                                    <Button onClick={()=>{
+                                        document.getElementById("info").innerHTML="Mobile Number : "+ val.mob+
+                                        " <br /> Mail id :  "+val.mail
+                                    }}>Show Seller Info</Button>
                                     <div id="info">
-                                        Mobile Number : { val["mob"]}
-                                        <br />
-                                        Mail id : {val["mail"]}
+                                        
                                     </div>
                                    </div> 
                                    
