@@ -20,8 +20,8 @@ const Home = () =>{
     })
     const [posts,setPost] = useState([]);
     const [likes,setLikes] = useState([]);
-    const [mob,setMob] =useState('');
-    const [mail,setMail]=useState('');
+    const [mob,setMob] =useState([]);
+    const [mail,setMail]=useState([]);
     const [liked,setLiked] =useState(JSON.parse(localStorage.getItem("liked")));
     localStorage.setItem("liked",JSON.stringify(liked));
     const history=useHistory();
@@ -45,11 +45,14 @@ const Home = () =>{
                 history.push('/');
         })
     }
-    const getUser = user =>{
+    const getUser = (user,id) =>{
         Axios.get(`https://vi-post.herokuapp.com/user/${user}`).then(response=>{
-            setMail(response.data[0].mail);
-            setMob(response.data[0].mob);
-            
+            var tmpA=mob;
+            var tmpB=mail;
+            tmpA[id]=response.data[0].mob;
+            tmpB[id]=response.data[0].mail;
+            setMob(tmpA);
+            setMail(tmpB);
         })
     }
     return(
@@ -101,14 +104,14 @@ const Home = () =>{
                                     }
                                    
                                     <div id="likes">
-                                    {likes[key]}
+                                    {likes[val.id]}
                                     
                                     <div id="info">
                                     </div>
                                    </div> 
                                    <button onClick={()=>{
-                                       getUser(val.username);
-                                       document.getElementById("info").innerHTML="Mobile number : "+mob+"<br/> Email id :"+mail;
+                                       getUser(val.username,val.id);
+                                       document.getElementById("info").innerHTML="Mobile number : "+mob[val.id]+"<br/> Email id :"+mail[val.id];
                                    }}>Seller info</button>
                                    </div>
                                    
