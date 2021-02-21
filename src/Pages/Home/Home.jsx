@@ -107,8 +107,7 @@ const Home = () =>{
                                         var para = document.createElement("div");                 
                                         para.innerHTML = "Mobile Number : "+ val.mob+
                                         " <br /> Mail id :  "+val.mail;               
-                                        document.getElementById("likes").appendChild(para);  
-                                        para.className="info";
+                                        document.getElementsByClassName("Likes")[key].appendChild(para);  
                                     }}>Show Seller Info</button>
                                     
                                    </div> 
