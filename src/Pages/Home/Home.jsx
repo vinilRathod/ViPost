@@ -103,15 +103,15 @@ const Home = () =>{
                                     <div id="likes">
                                     {likes[key]}
                                     
-                                   
+                                    <div id="info">
+                                    </div>
                                    </div> 
                                    <button onClick={()=>{
-                                       getUser(val.username)
+                                       getUser(val.username);
                                        document.getElementById("info").innerHTML="Mobile number : "+mob+"<br/> Email id :"+mail;
                                    }}>Seller info</button>
                                    </div>
-                                   <div id="info">
-                                    </div>
+                                   
                                    <div className="Share">
                                    Posted on {val.day}-{val.month}-{val.year}
                                        <FacebookShareButton
