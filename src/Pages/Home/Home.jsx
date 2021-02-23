@@ -84,9 +84,9 @@ const Home = () =>{
                                         <ThumbUpAltIcon id="likeButton" onClick={() =>{ 
                                             likePost(val.id);
                                             let tmpLikes =likes;
-                                            tmpLikes[val.id] = tmpLikes[val.id] +1;
+                                            tmpLikes[key] = tmpLikes[key] +1;
                                             setLikes(tmpLikes);
-                                            document.getElementById("likes").innerHTML=tmpLikes[val.id];
+                                            document.getElementById("likes").innerHTML=tmpLikes[key];
                                             let tmpLiked=liked;
                                             tmpLiked[val.id]=true;
                                             setLiked(tmpLiked);
@@ -101,7 +101,7 @@ const Home = () =>{
                                     }
                                    
                                     <div id="likes">
-                                    {likes[val.id]}
+                                    {likes[key]}
                                     <br />
                                    </div> 
                                    <button onClick={()=>{
