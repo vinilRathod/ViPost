@@ -101,7 +101,7 @@ const Home = () =>{
                                     }
                                    
                                     <div id="likes">
-                                    {likes[val.id]}
+                                    {likes[key]}
                                     <br />
                                    </div> 
                                    <button onClick={()=>{
