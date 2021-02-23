@@ -103,16 +103,14 @@ const Home = () =>{
                                     <div id="likes">
                                     {likes[val.id]}
                                     <br />
-                                    <button onClick={()=>{
+                                   </div> 
+                                   <button onClick={()=>{
                                         var para = document.createElement("div");                 
                                         para.innerHTML = "Mobile Number : "+ val.mob+
                                         " <br /> Mail id :  "+val.mail;               
                                         document.getElementsByClassName("Likes")[key].appendChild(para);  
                                         para.className="info";
                                     }}>Show Seller Info</button>
-                                    
-                                   </div> 
-                                   
                                    </div>
                                    
                                    <div className="Share">
