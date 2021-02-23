@@ -86,7 +86,7 @@ const Home = () =>{
                                             let tmpLikes =likes;
                                             tmpLikes[val.id] = tmpLikes[val.id] +1;
                                             setLikes(tmpLikes);
-                                            document.getElementById("likes").innerHTML=tmpLikes[key];
+                                            document.getElementById("likes").innerHTML=tmpLikes[val.id];
                                             let tmpLiked=liked;
                                             tmpLiked[val.id]=true;
                                             setLiked(tmpLiked);
@@ -101,7 +101,7 @@ const Home = () =>{
                                     }
                                    
                                     <div id="likes">
-                                    {likes[key]}
+                                    {likes[val.id]}
                                     <br />
                                    </div> 
                                    <button onClick={()=>{
