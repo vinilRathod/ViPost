@@ -1,0 +1,3 @@
+[submodule "vi-post-backend"]
+	path = vi-post-backend
+	url = ../vi-post-backend
